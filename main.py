@@ -1,13 +1,5 @@
-import sys
+import numpy as np
+from math import sqrt
 from utils import chrono
-
-
-@chrono
-def countTo(bound):
-    c = 0
-    for i in range(bound):
-        c += 1
-    return c
-
-
-countTo(1000000)
+from primes import get_primes, get_isPrime
+from itertools import product
