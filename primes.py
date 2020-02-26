@@ -1,4 +1,7 @@
-def get_primes(bound):
+from utils import chrono
+
+
+def getPrimes(bound):
     notPrime = [0] * (bound + 1)
     notPrime[0] = notPrime[1] = 1
     primes = [2]
@@ -11,7 +14,7 @@ def get_primes(bound):
     return primes
 
 
-def get_isPrime(bound):
+def isPrime(bound):
     isPrime = [1] * (bound + 1)
     isPrime[0] = isPrime[1] = 0
 
@@ -23,13 +26,13 @@ def get_isPrime(bound):
 
 
 def sieve(bound):
-    notPrime = [0] * (bound + 1)
-    notPrime[0] = notPrime[1] = 1
+    isPrime = [1] * (bound + 1)
+    isPrime[0] = isPrime[1] = 0
     primes = []
 
     for n in range(2, bound + 1):
-        if not notPrime[n]:
+        if isPrime[n]:
             primes += [n]
             for m in range(n**2, bound + 1, n):
-                notPrime[m] = 1
-    return primes, notPrime
+                isPrime[m] = 0
+    return primes, isPrime
